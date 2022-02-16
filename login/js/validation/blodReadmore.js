@@ -4,6 +4,7 @@ console.log(id)
 let Blog = document.querySelector(".article-details");
 let rightBlog = document.querySelector(".recommended-list");
 let url = 'https://atlp-backend-brand.herokuapp.com/api/v1/aritcles/' + id
+let urlcomment = 'https://atlp-backend-brand.herokuapp.com/api/v1/comments/' + id
 console.log(url);
 fetch(url)
     .then((res) => res.json())
@@ -23,7 +24,7 @@ fetch(url)
                         <span class="icon-number">${data.likes}</span>
                     </div>
                 </div>
-                <div class="article-comments">
+                <div class="article-commentss">
                    <h3 class="comments-title">Comments</h3>
                    
                     </div>
@@ -40,29 +41,19 @@ fetch(url)
                             <button class="btn btn-primary" type="submit">Post Comment</button>
                         </div>
                     </form>
+                    <div class="article-comments">
+                    <h3 class="comments-title">Comments</h3>
+                    
+                     </div>
                 </div>
             </div>
             
         `;
-        let BlogComment = document.querySelector(".article-comments");
-        let div = document.createElement('div');
-
-        data.comments.forEach((comment) => {
-            let BlogComment = document.querySelector(".article-comments");
-            let div = document.createElement('div');
-
-            div.innerHTML = `
-<div class="comments">
-    <div class="comment">
-        <h3 class="comment-name">${comment.Name}</h3>
-        <div class="comment-body">
-        ${comment.message}
-        </div>
-    </div> `;
-            BlogComment.appendChild(div);
-        });
-
+        display()
     })
+
+let BlogComment = document.querySelector(".article-comments");
+
 fetch('https://atlp-backend-brand.herokuapp.com/api/v1/aritcles')
     .then((res) => res.json())
     .then((Articles) => {
@@ -83,3 +74,61 @@ fetch('https://atlp-backend-brand.herokuapp.com/api/v1/aritcles')
 
         });
     })
+
+
+
+function commet(event) {
+    event.preventDefault();
+    var fname = document.getElementById("name");
+    var message = document.getElementById("message");
+
+    var Name_invalid = document.getElementById("Name_invalid");
+    var Message_invalid = document.getElementById("message");
+    let check = fetch(urlcomment, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain,*/*',
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: fname.value,
+                comment: message.value,
+
+            }),
+        })
+        .then((res) => res.json())
+
+    .then((data) => console.log(data));
+    console.log(message.value);
+    if (check) {
+        alert("Created Well");
+    } else {
+        alert("not created");
+    }
+
+
+
+}
+
+function display() {
+
+    let BlogComment = document.querySelector(".article-comments");
+    fetch(urlcomment)
+        .then((res) => res.json())
+        .then((query) => {
+            const comments = query.data;
+            comments.forEach(message => {
+                let div = document.createElement('div');
+                div.innerHTML = `
+            <div class="comments">
+                <div class="comment">
+                    <h3 class="comment-name">${message.name}</h3>
+                    <div class="comment-body">
+                    ${message.comment}
+                    </div>
+                </div> `;
+                BlogComment.appendChild(div)
+            })
+
+        })
+}

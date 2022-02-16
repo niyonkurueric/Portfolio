@@ -25,29 +25,27 @@ function Contact(event) {
         email_invalid.style.display = "block";
 
     } else {
+        let check = fetch('https://atlp-backend-brand.herokuapp.com/api/v1/queries', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json, text/plain,*/*',
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: fname.value,
+                    email: email.value,
+                    message: message.value,
+                    timestamp: Date.now(),
+                }),
+            })
+            .then((res) => res.json())
 
-        obj = {...obj,
-            Name: fname.value,
-            Email: email.value,
-            Message: message.value,
-            timestamp: Date.now()
-        }
-
-        let queries = localStorage.getItem("queries");
-        if (queries) {
-
-            var convert = JSON.parse(queries);
-            convert.push(obj);
-            localStorage.setItem("queries", JSON.stringify(convert));
-            alert("well send message");
-            window.location.reload();
-
+        .then((data) => console.log(data));
+        if (check) {
+            alert("Send Messege Well");
+            window.location.href = "index.html";
         } else {
-            var queryarray = [obj];
-            localStorage.setItem("queries", JSON.stringify(queryarray));
-            alert("well send message");
-            window.location.reload();
-
+            alert("not Send Messege");
         }
 
 
@@ -72,7 +70,7 @@ function showPosition(position) {
         .then(response => response.json())
         .then(data => {
             var resultlocation = data.results[0].formatted;
-            obj = {...obj, city: resultlocation }
+            body = {...body, city: resultlocation }
 
         })
 }
