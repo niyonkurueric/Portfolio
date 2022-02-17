@@ -1,0 +1,59 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link href="admin/css/main.css" rel="stylesheet">
+    <link href="login.css" rel="stylesheet">
+    <title>Login</title>
+</head>
+
+<body class="login-page">
+    <div class="login-container">
+        <form class="login-form loader-container" onsubmit="login(event)">
+            <div id="container-loader">
+                <div class="lds-ripple">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="form-input" type="text" placeholder="Email" id="email" />
+                <span class="text-invalid" id="email_invalid">invalid Emai</span>
+            </div>
+            <div class="form-group">
+                <input class="form-input" type="password" id="password" placeholder="Password" />
+                <span class="text-invalid" id="password_invalid">password must be charcter letter speciol charcter and captital letter</span>
+            </div>
+            <span class="text-invalid" id="invalid">Sorry, wrong email or password!</span>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block loader-block" id="login_btn">
+                Login
+            </button>
+            </div>
+            <div class="not-registered">
+                <span class="not-registered__text">An Administrator? </span>
+                <a href="../index.html" class="not-registered__link">Back to home</a>
+            </div>
+
+        </form>
+    </div>
+    <script type="text/javascript" src="js/validation/login.js"></script>
+    <script>
+        if (JSON.parse(localStorage.getItem("userInfo")).islogin === true) {
+            window.location.assign("http://127.0.0.1:5500/login/admin/index.html");
+        }
+        userInfo = JSON.parse(localStorage.getItem("userInfo"));
+        let logok = document.querySelector(".logo");
+        console.log(logok)
+        if (userInfo.FirstName) {
+            logok.innerHTML = userInfo.FirstName;
+        } else {
+            logok.innerHTML = " Niyonkuru";
+        }
+    </script>
+</body>
+
+</html>

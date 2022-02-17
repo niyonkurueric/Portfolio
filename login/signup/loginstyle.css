@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    list-style: none;
+    word-wrap: break-word;
+ }
+ body {
+  font-family: 'Poppins', sans-serif;
+  background-color:#715EBB;
+  padding: 100px 500px;
+ }
+ main
+ {
+background-color: beige;
+width: inherit;
+height: 500px;
+box-shadow: 10px;
+border: 2px solid black;
+padding: 10px 100px;
+justify-content: space-around;
+border-radius: 10px;
+ }
+ .image{
+     background-color: aqua;
+     width: 100px;
+     height: 100px;
+     margin: 10px 100px;
+     border-radius: 50%;
+ }
+ .image img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+ }
+ main input
+ {
+     width: 300px;
+     height: 50px;
+     margin-left: 10px;
+     padding: 10px;
+     margin-top: 40px;
+     font-size: 18px;
+ }
+ 
+ main button
+ {
+     width: 120px;
+     border: none;
+     cursor: pointer;
+     background-color: none;
+ }
+ #signup
+ {
+     height: auto;
+     box-shadow: 10px;
+     border: 2px solid black;
+     padding: 10px 60px;
+     justify-content: space-around;
+     border-radius: 10px;
+ }
+ button{
+     margin-top: 10px;
+     padding: 10px;
+ }
+ i
+ {
+     padding: 20px;
+ }
+/* Media screen */
+
+@media (max-width: 1000px) {
+    body {
+        align-items: center;
+        padding-left: 300px;
+       }
+
+       main
+       {
+      width: 400px;
+      height: 500px;
+      box-shadow: 10px;
+      border: 2px solid black;
+      padding: 10px;
+      justify-content: space-around;
+      border-radius: 10px;
+       }
+       main input
+       {
+           width: 300px;
+           height: 50px;
+           margin-left: 1px;
+          
+       }
+}
+@media (max-width: 768px) {
+    body {
+        padding: 50px 100px;
+       }
+
+}
+@media (max-width: 608px) {
+    body {
+        padding: 50px 100px;
+       }
+       main
+       {
+      width: 400px;
+      height: 500px;
+      box-shadow: 10px;
+      border: 2px solid black;
+      padding: 10px;
+      justify-content: space-around;
+      border-radius: 10px;
+       }
+       main input
+       {
+           width: 300px;
+           height: 50px;
+           margin-left: 1px;
+          
+       }
+}

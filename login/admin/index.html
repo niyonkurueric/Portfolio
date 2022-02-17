@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css1/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Admins</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/admin.css" rel="stylesheet">
+    <link href="css/queries.css" rel="stylesheet">
+    <link rel="stylesheet" href="icons/themify-icons.css">
+</head>
+
+
+<body>
+    <div class="wrapper hover_collapse">
+
+        <!-- Top bar -->
+        <div class="top_navbar">
+            <!-- logo -->
+            <div class="logo">Niyonkuru</div>
+            <!-- menu button -->
+            <div class="menu">
+                <div class="hamburger">
+                    <i class="fas fa-bars">&#9776;</i>
+                </div>
+
+                <ul class="logout1" id="logout1">
+                    <li>
+                        <a href="#" style="color:#fff; font-size: 18px;">
+                            <span class="fa fa-sign-out"><i></i></span>
+                            <span class="text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar_inner">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <span class="fa fa-qrcode"><i></i></span>
+                            <span class="text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:5500">
+                            <span class="fa fa-qrcode"><i></i></span>
+                            <span class="text">User Page</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="create_blog.html">
+                            <span class="fa fa-id-card"><i></i></span>
+                            <span class="text">Create blog</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="queries.html">
+                            <span class="fa fa-certificate"><i></i></span>
+                            <span class="text">Queries</span>
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile.html">
+                            <span class="fa fa-book"><i></i></span>
+                            <span class="text">Profile</span>
+                        </a>
+                    </li>
+                    <li id="logout">
+                        <a href="#">
+                            <span class="fa fa-sign-out"><i></i></span>
+                            <span class="text">logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- <div class="main"> -->
+
+    <main class="main">
+
+        <section class="admin-dashboard">
+            <div class="dashboard-summary">
+
+            </div>
+            <h2 class="dashboard-title"> Blog articles</h2>
+            <div class="cards">
+            </div>
+            </div>
+        </section>
+    </main>
+    </div>
+    </div>
+
+    <footer class="footer">
+        <p class="footer-details">
+            Copyright &copy;Niyonkuru Eric 2021
+        </p>
+        <div class="footer__icons">
+            <a href="#" class="footer__icons__link">
+                <span class="ti-facebook"></span>
+            </a>
+            <a href="#" class="footer__icons__link">
+                <span class="ti-instagram"></span>
+            </a>
+            <a href="#" class="footer__icons__link">
+                <span class="ti-linkedin"></span>
+            </a>
+        </div>
+    </footer>
+    <script>
+        if (JSON.parse(localStorage.getItem("userInfo")).islogin === false) {
+            window.location.assign("http://127.0.0.1:5500/login/login.html");
+        }
+        userInfo = JSON.parse(localStorage.getItem("userInfo"));
+        let logok = document.querySelector(".logo");
+        console.log(logok)
+        if (userInfo.FirstName) {
+            logok.innerHTML = userInfo.FirstName;
+        } else {
+            logok.innerHTML = " Niyonkuru";
+        }
+    </script>
+    <script src="js1/js.js"></script>
+    <script src="/login/js/validation/logout.js"></script>
+    <script src="/login/js/validation/viewBlog.js"></script>
+</body>
+
+</html>
