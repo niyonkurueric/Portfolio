@@ -1,8 +1,11 @@
 const urlParams = new URLSearchParams(location.search);
 var id = urlParams.get("id");
+const gettoken = JSON.parse(localStorage.getItem("userInfo"));
+const token = gettoken.token;
+console.log(token)
 let BlogEdity = document.querySelector("#blog_form");
 let rightBlog = document.querySelector(".recommended-list");
-let url = 'https://atlp-backend-brand.herokuapp.com/api/v1/aritcles/' + id
+let url = 'http://localhost:3000/api/v1/aritcles/' + id
 console.log(url);
 const getblog = fetch(url)
     .then((res) => res.json())
@@ -60,7 +63,7 @@ function update(event) {
 
             method: 'PATCH',
             headers: {
-                'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGI2N2FiOThmMzhjZjljZjJhZWQ1YiIsImlhdCI6MTY0NDkxNDYyMywiZXhwIjoxNjQ1NTE5NDIzfQ.3AMt6sCC5z6NEj--NIfnU7IDJG8vUjWJDhyakSFe-jY',
+                'authorization': token,
             },
             body: formData
         })
@@ -81,7 +84,7 @@ function deleteone(event) {
 
             method: 'DELETE',
             headers: {
-                'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGI2N2FiOThmMzhjZjljZjJhZWQ1YiIsImlhdCI6MTY0NDkxNDYyMywiZXhwIjoxNjQ1NTE5NDIzfQ.3AMt6sCC5z6NEj--NIfnU7IDJG8vUjWJDhyakSFe-jY',
+                'authorization': token,
             },
         })
         .then((res) => res.json())

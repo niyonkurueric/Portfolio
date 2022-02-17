@@ -3,8 +3,8 @@ var id = urlParams.get("id");
 console.log(id)
 let Blog = document.querySelector(".article-details");
 let rightBlog = document.querySelector(".recommended-list");
-let url = 'https://atlp-backend-brand.herokuapp.com/api/v1/aritcles/' + id
-let urlcomment = 'https://atlp-backend-brand.herokuapp.com/api/v1/comments/' + id
+let url = 'http://localhost:3000/api/v1/aritcles/' + id
+let urlcomment = 'http://localhost:3000/api/v1/comments/' + id
 console.log(url);
 fetch(url)
     .then((res) => res.json())
@@ -43,18 +43,16 @@ fetch(url)
                     </form>
                     <div class="article-comments">
                     <h3 class="comments-title">Comments</h3>
-                    
                      </div>
                 </div>
             </div>
-            
         `;
         display()
     })
 
 let BlogComment = document.querySelector(".article-comments");
 
-fetch('https://atlp-backend-brand.herokuapp.com/api/v1/aritcles')
+fetch('http://localhost:3000/api/v1/aritcles')
     .then((res) => res.json())
     .then((Articles) => {
         Articles;

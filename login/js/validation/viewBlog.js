@@ -1,5 +1,14 @@
 const cards = document.querySelector(".cards");
-fetch('https://atlp-backend-brand.herokuapp.com/api/v1/aritcles')
+const gettoken = JSON.parse(localStorage.getItem("userInfo"));
+const token = gettoken.token;
+console.log(token)
+
+fetch('http://localhost:3000/api/v1/aritcles', {
+        method: 'GET',
+        headers: {
+            'authorization': token,
+        },
+    })
     .then((res) => res.json())
     .then((data) => {
         data.sort().reverse()

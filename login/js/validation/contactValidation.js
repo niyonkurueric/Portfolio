@@ -25,16 +25,18 @@ function Contact(event) {
         email_invalid.style.display = "block";
 
     } else {
-        let check = fetch('https://atlp-backend-brand.herokuapp.com/api/v1/queries', {
+        console.log(message.value)
+        let check = fetch('http://localhost:3000/api/v1/queries', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json, text/plain,*/*',
                     'content-type': 'application/json',
                 },
+
                 body: JSON.stringify({
                     name: fname.value,
                     email: email.value,
-                    message: message.value,
+                    content: message.value,
                     timestamp: Date.now(),
                 }),
             })
@@ -47,8 +49,6 @@ function Contact(event) {
         } else {
             alert("not Send Messege");
         }
-
-
     }
 }
 

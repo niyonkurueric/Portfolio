@@ -36,7 +36,7 @@ function ceatBlog(event) {
         formData.append('image', image);
         formData.append("title", title);
         formData.append("content", message);
-        let check = fetch('https://atlp-backend-brand.herokuapp.com/api/v1/aritcles', {
+        let check = fetch('http://localhost:3000/api/v1/aritcles', {
             method: 'POST',
             headers: {
                 'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGI2N2FiOThmMzhjZjljZjJhZWQ1YiIsImlhdCI6MTY0NDkxNDYyMywiZXhwIjoxNjQ1NTE5NDIzfQ.3AMt6sCC5z6NEj--NIfnU7IDJG8vUjWJDhyakSFe-jY',

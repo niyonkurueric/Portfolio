@@ -1,5 +1,5 @@
 const cards = document.querySelector(".cards");
-fetch('https://atlp-backend-brand.herokuapp.com/api/v1/aritcles')
+fetch('http://localhost:3000/api/v1/aritcles')
     .then((res) => res.json())
     .then((data) => {
         data.sort().reverse();

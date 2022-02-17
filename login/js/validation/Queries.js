@@ -1,4 +1,7 @@
 const queryCollection = document.querySelector('.queries')
+const gettoken = JSON.parse(localStorage.getItem("userInfo"));
+const token = gettoken.token;
+console.log(token)
 
 function display(doc) {
     let div = document.createElement('div');
@@ -11,9 +14,8 @@ function display(doc) {
     let span = document.createElement('span');
     let times = document.createElement('span');
     let loca = document.createElement('span');
-
     h4.textContent = doc.name;
-    p.textContent = doc.message;
+    p.textContent = doc.content;
     span.textContent = doc.email;
     times.textContent = moment(doc.created_on).fromNow();
     loca.textContent = (doc.city);
@@ -27,17 +29,16 @@ function display(doc) {
     queryCollection.appendChild(div)
 }
 
-let queries = fetch('https://atlp-backend-brand.herokuapp.com/api/v1/queries', {
+let queries = fetch('http://localhost:3000/api/v1/queries', {
         method: 'GET',
         headers: {
-            'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMGI2N2FiOThmMzhjZjljZjJhZWQ1YiIsImlhdCI6MTY0NDkxNDYyMywiZXhwIjoxNjQ1NTE5NDIzfQ.3AMt6sCC5z6NEj--NIfnU7IDJG8vUjWJDhyakSFe-jY',
+            'authorization': token,
         },
     })
     .then((res) => res.json())
     .then((query) => {
-        query.sort().reverse();
+        query.reverse()
         query.forEach(messages => {
-
             display(messages);
 
         })
