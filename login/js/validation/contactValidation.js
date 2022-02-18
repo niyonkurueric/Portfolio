@@ -26,7 +26,7 @@ function Contact(event) {
 
     } else {
         console.log(message.value)
-        let check = fetch('http://localhost:3000/api/v1/queries', {
+        let check = fetch('https://atlp-backend-brand.herokuapp.com/api/v1/queries', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json, text/plain,*/*',

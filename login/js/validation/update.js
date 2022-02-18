@@ -5,7 +5,7 @@ const token = gettoken.token;
 console.log(token)
 let BlogEdity = document.querySelector("#blog_form");
 let rightBlog = document.querySelector(".recommended-list");
-let url = 'http://localhost:3000/api/v1/aritcles/' + id
+let url = 'https://atlp-backend-brand.herokuapp.com/api/v1/aritcles/' + id
 console.log(url);
 const getblog = fetch(url)
     .then((res) => res.json())

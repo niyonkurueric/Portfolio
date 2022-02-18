@@ -20,7 +20,7 @@ function login(event) {
     if (checkPassword(passwordInput.value) && check_email(emailInput.value)) {
         passwordInput.style.border = "solid 1px #cbd5e0";
         emailInput.style.border = "solid 1px #cbd5e0";
-        fetch('http://localhost:3000/api/v1/user/login', {
+        fetch('https://atlp-backend-brand.herokuapp.com/api/v1/user/login', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json, text/plain,*/*',

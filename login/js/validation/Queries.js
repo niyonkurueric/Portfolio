@@ -29,7 +29,7 @@ function display(doc) {
     queryCollection.appendChild(div)
 }
 
-let queries = fetch('http://localhost:3000/api/v1/queries', {
+let queries = fetch('https://atlp-backend-brand.herokuapp.com/api/v1/queries', {
         method: 'GET',
         headers: {
             'authorization': token,

@@ -3,9 +3,11 @@ var id = urlParams.get("id");
 console.log(id)
 let Blog = document.querySelector(".article-details");
 let rightBlog = document.querySelector(".recommended-list");
-let url = 'http://localhost:3000/api/v1/aritcles/' + id
-let urlcomment = 'http://localhost:3000/api/v1/comments/' + id
+let url = 'https://atlp-backend-brand.herokuapp.com/api/v1/aritcles/' + id
+let urlcomment = 'https://atlp-backend-brand.herokuapp.com/api/v1/comments/' + id
 console.log(url);
+var myVar;
+console.log(id)
 fetch(url)
     .then((res) => res.json())
     .then((data) => {
@@ -48,11 +50,17 @@ fetch(url)
             </div>
         `;
         display()
+        if (data) {
+            myFunction()
+        }
     })
+
+
+
 
 let BlogComment = document.querySelector(".article-comments");
 
-fetch('http://localhost:3000/api/v1/aritcles')
+fetch('https://atlp-backend-brand.herokuapp.com/api/v1/aritcles')
     .then((res) => res.json())
     .then((Articles) => {
         Articles;
@@ -100,6 +108,7 @@ function commet(event) {
     console.log(message.value);
     if (check) {
         alert("Created Well");
+        location.reload();
     } else {
         alert("not created");
     }
@@ -129,4 +138,13 @@ function display() {
             })
 
         })
+}
+
+function myFunction() {
+    showPage()
+}
+
+function showPage() {
+    document.getElementById("loader").style.display = "none";
+    document.querySelector(".article-details").style.display = "block";
 }
