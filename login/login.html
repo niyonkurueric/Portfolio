@@ -43,7 +43,7 @@
     <script type="text/javascript" src="js/validation/login.js"></script>
     <script>
         if (JSON.parse(localStorage.getItem("userInfo")).islogin === true) {
-            window.location.assign("http://127.0.0.1:5500/login/admin/index.html");
+            window.location.assign("/login/admin/index.html");
         }
         userInfo = JSON.parse(localStorage.getItem("userInfo"));
         let logok = document.querySelector(".logo");

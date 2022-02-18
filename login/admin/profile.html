@@ -53,7 +53,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1:5500">
+                        <a href="/../../index.html">
                             <span class="fa fa-qrcode"><i></i></span>
                             <span class="text">User Page</span>
                         </a>
@@ -147,7 +147,7 @@
     </footer>
     <script>
         if (JSON.parse(localStorage.getItem("userInfo")).islogin === false) {
-            window.location.assign("http://127.0.0.1:5500/login/login.html");
+            window.location.assign("/login/login.html");
         }
         userInfo = JSON.parse(localStorage.getItem("userInfo"));
         let logok = document.querySelector(".logo");
